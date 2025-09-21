@@ -3,8 +3,8 @@
 A simple web-based timer app that reminds you to take breaks while working on your computer or smartphone. Built to help maintain focus and prevent long periods of continuous screen time.  
 This is an updated version of the previous **Break Reminder** (which was private), with improved features, responsive design, and PWA support.
 
-![Desktop Screenshot](screenshots/break-reminder-desktop.png)
-![Mobile Screenshot](screenshots/break-reminder-mobile.png)
+![Desktop Screenshot](screenshots/screenshot-desktop.png)
+![Mobile Screenshot](screenshots/screenshot-mobile.png)
 
 ---
 
@@ -39,8 +39,8 @@ This is an updated version of the previous **Break Reminder** (which was private
 - audio/
   - alert.mp3
 - screenshots/
-  - break-reminder-desktop.png
-  - break-reminder-mobile.png
+  - screenshot-desktop.png
+  - screenshot-mobile.png
 
 ---
 
