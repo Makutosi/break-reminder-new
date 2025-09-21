@@ -1,7 +1,7 @@
 {
   "name": "Break Reminder — break-reminder-new",
   "short_name": "BreakRemNew",
-  "start_url": ".",
+  "start_url": "/break-reminder-new/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",

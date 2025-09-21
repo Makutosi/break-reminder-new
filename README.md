@@ -36,6 +36,7 @@ This is an updated version of the previous **Break Reminder** (which was private
   - aurora-720.jpg
   - minimal.jpg
   - minimal-720.jpg
+- icons/
   - icon-192.png
   - icon-512.png
 - audio/
