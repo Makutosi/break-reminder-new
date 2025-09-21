@@ -1,0 +1,136 @@
+<!-- break-reminder-new / 21.9.2025 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Break Reminder — break-reminder-new</title>
+  <meta name="description" content="Break Reminder — simple PWA timer to remind you to take breaks.">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+<div class="card" id="mainCard">
+  <h2>
+    Break Reminder
+  </h2>
+
+  <!-- Progress bar + Countdown -->
+  <div class="progress">
+    <div class="circle" 
+      id="progressCircle" 
+      role="progressbar" 
+      aria-valuemin="0" 
+      aria-valuemax="100" 
+      aria-valuenow="0"
+      aria-label="Break timer progress">
+    </div>
+    <div class="time" id="countdown">--:--</div>
+  </div>
+
+  <!-- Icon button group -->
+  <div class="button-group">
+    <button class="icon-btn" id="setTimerBtn" title="Set Timer" aria-label="Set Timer">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2"/>
+        <path d="M12 6v6l4 2" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    
+    <button class="icon-btn" id="backgroundBtn" title="Change Background" aria-label="Change Background">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="3" width="18" height="18" rx="3" stroke="white" stroke-width="2"/>
+        <circle cx="8" cy="8" r="2" fill="white"/>
+        <path d="M3 17l5-5 4 4 5-7 4 6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <button class="icon-btn" id="pauseBtn" title="Pause Timer" aria-label="Pause Timer">
+      <svg id="pauseIcon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="6" y="5" width="4" height="14" fill="white"/>
+        <rect x="14" y="5" width="4" height="14" fill="white"/>
+      </svg>
+    </button>
+
+    <button class="icon-btn" id="stopBtn" title="Stop Timer" aria-label="Stop Timer">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <rect x="6" y="6" width="12" height="12" rx="2" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </button>
+
+    <button class="icon-btn" id="toggleCountdownBtn" title="Show/Hide Countdown" aria-label="Show/Hide Countdown">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" stroke="white" stroke-width="2"/>
+        <circle cx="12" cy="12" r="3" fill="white"/>
+        <line x1="4" y1="20" x2="20" y2="4" stroke="white" stroke-width="2" id="eyeSlash" style="display:none"/>
+      </svg>
+    </button>
+  </div>
+
+  <p id="status">The timer is not running yet.</p>
+</div>
+
+<!-- Custom Timer Modal -->
+<div class="modal" id="setTimerModal">
+  <div class="modal-content">
+    <h2>Set Timer</h2>
+    <input type="number" id="timerInput" min="5" max="120" value="30"> minutes
+    <div class="preset-buttons">
+      <button class="preset-btn" data-min="5" aria-label="Set timer for 5 minutes">5</button>
+      <button class="preset-btn" data-min="15" aria-label="Set timer for 15 minutes">15</button>
+      <button class="preset-btn" data-min="30" aria-label="Set timer for 30 minutes">30</button>
+      <button class="preset-btn" data-min="45" aria-label="Set timer for 45 minutes">45</button>
+      <button class="preset-btn" data-min="60" aria-label="Set timer for60 minutes">60</button>
+    </div>
+    <div class="modal-buttons">
+      <button id="backTimer" aria-label="Back to timer setup">Back</button>
+      <button id="okTimer" aria-label="Start timer">Start</button>
+    </div>
+  </div>
+</div>
+
+<!-- Break Modal -->
+<div class="modal" id="breakModal">
+  <div class="modal-content">
+    <h2>Time to take a break!</h2>
+    <p>Relax and stretch for a few minutes 🌿</p>
+    <button id="closeModal" aria-label="Close break modal">OK</button>
+  </div>
+</div>
+
+<!-- Background Selector Modal -->
+<div class="modal" id="backgroundModal">
+  <div class="modal-content">
+    <h2>Select Background</h2>
+    <div class="background-options">
+      <div class="background-option" data-bg="images/aurora.jpg">
+        <img src="images/aurora-720.jpg" alt="Aurora">
+        <p>Aurora</p>
+      </div>
+      <div class="background-option" data-bg="images/minimal.jpg">
+        <img src="images/minimal-720.jpg" alt="Minimal">
+        <p>Minimal</p>
+      </div>
+      <div class="background-option" data-bg="images/background.jpg">
+        <img src="images/background-720.jpg" alt="Background">
+        <p>Background</p>
+      </div>
+    </div>
+    <div class="modal-buttons">
+      <button id="okBg" aria-label="Confirm background selection">OK</button>
+    </div>
+  </div>
+</div>
+
+<footer>© 2024-2025 Poco fermata</footer>
+<audio id="alertSound" src="alert.mp3"></audio>
+
+</body>
+</html>
+
+
+
