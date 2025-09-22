@@ -29,6 +29,7 @@ This is an updated version of the previous **Break Reminder** (which was private
 - script.js
 - manifest.json
 - service-worker.js
+- favicon-32.png
 - images/
   - background.jpg
   - background-720.jpg
