@@ -8,6 +8,8 @@ This is an updated version of the previous **Break Reminder** (which was private
   <img src="screenshots/screenshot-mobile.png" alt="Mobile Screenshot" height="300">
 </p>
 
+➡️ Try it here: [Break Reminder New](https://makutosi.github.io/break-reminder-new/) 
+
 ---
 
 ## Features
