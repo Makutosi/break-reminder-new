@@ -40,6 +40,14 @@ let isPaused = false;
 // Load saved background from localStorage or fallback to default
 let selectedBackground = localStorage.getItem('background') || 'images/background.jpg';
 
+////
+// ページロード時に通知権限をリクエスト（オプション）
+if ('Notification' in window) {
+  Notification.requestPermission().then(permission => {
+    console.log('Notification permission:', permission);
+  });
+}
+
 // Function: apply selected background image to body
 function applyBackground(bg) {
   document.body.style.backgroundImage = `url('${bg}')`;
@@ -199,8 +207,19 @@ function resetTimer() {
   updateCountdownVisibility();
   localStorage.setItem("countdownVisible", countdownVisible);
 }
+////
+async function showBreakNotification() {
+  if (!("Notification" in window)) return;
 
+  if (Notification.permission === "granted") {
+    new Notification("Break Reminder", {
+      body: "Time for a break! ✨",
+      icon: "icons/icon-192.png"
+    });
+  }
+}
 // Show break modal with sound + vibration
+/*
 function showBreakModal() {
   breakModal.style.display = "flex";
   alertSound.currentTime = 0;
@@ -209,6 +228,19 @@ function showBreakModal() {
   if (navigator.vibrate) {
     navigator.vibrate([500, 200, 500]);
   }
+}
+*/
+////
+async function showBreakModal() {
+  breakModal.style.display = "flex";
+  alertSound.currentTime = 0;
+  alertSound.play();
+
+  if (navigator.vibrate) {
+    navigator.vibrate([500, 200, 500]);
+  }
+
+  await showBreakNotification();  // ← ここで通知を表示
 }
 
 // Stop button handler
