@@ -79,3 +79,5 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 - Recommended to use a modern browser for full functionality.
 - Mobile screenshots show responsive design; desktop screenshot shows draggable card interface.
 - Images are optimized for faster loading on mobile devices.
+- **Important:** If your device screen is asleep or locked, the timer will not notify you until the screen is turned on. 
+  This is intentional — the app is designed to alert you only during active use, when the screen is on.
