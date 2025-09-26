@@ -207,7 +207,7 @@ function resetTimer() {
   updateCountdownVisibility();
   localStorage.setItem("countdownVisible", countdownVisible);
 }
-////
+//// added
 async function showBreakNotification() {
   if (!("Notification" in window)) return;
 
@@ -230,17 +230,18 @@ function showBreakModal() {
   }
 }
 */
-////
+////　added
 async function showBreakModal() {
   breakModal.style.display = "flex";
   alertSound.currentTime = 0;
+  alertSound.loop = true; // loop
   alertSound.play();
 
   if (navigator.vibrate) {
     navigator.vibrate([500, 200, 500]);
   }
 
-  await showBreakNotification();  // ← ここで通知を表示
+  await showBreakNotification();  // View notifications here
 }
 
 // Stop button handler
@@ -252,6 +253,7 @@ closeModal.addEventListener("click", () => {
   resetTimer();
   alertSound.pause();
   alertSound.currentTime = 0;
+  alertSound.loop = false; // 
 });
 
 // --- COUNTDOWN VISIBILITY TOGGLE ---
